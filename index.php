@@ -6,11 +6,11 @@ header ("Content-Type: text/html; charset=utf-8");
  */
 interface InterfaceNameForCar
 {
-  public function __construct($name, $model);
+    public function __construct($name, $model);
 }
 
 class Car implements InterfaceNameForCar //суперкласс
- {
+{
     protected $name;
     protected $model;
 
@@ -23,15 +23,15 @@ class Car implements InterfaceNameForCar //суперкласс
 /**
  * Дочерний класс
  */
- interface InterfaceNameForCarModel
- {
+interface InterfaceNameForCarModel
+{
     public function setSpeed($speed);
     public function setColor($color);
     public function getDescribe();
- }
+}
 
 class CarModel extends Car implements InterfaceNameForCarModel
- {
+{
     protected $speed;
     protected $color;
 
@@ -68,8 +68,8 @@ echo $car2->getDescribe() . '<br />';
 echo "<pre>";
 interface InterfaceNameForTv
 {
-  public function changeColor($color);
-  public function getDescription();
+    public function changeColor($color);
+    public function getDescription();
 }
 
 class Tv implements InterfaceNameForTv //суперкласс
@@ -91,11 +91,11 @@ class Tv implements InterfaceNameForTv //суперкласс
 /**
  * Дочерний класс
  */
- interface InterfaceNameForTvClass
- {
+interface InterfaceNameForTvClass
+{
    public function __construct($name);
    public function getDescription();
- }
+}
 
 class TvClass extends TV implements InterfaceNameForTvClass
 {
@@ -149,9 +149,9 @@ class PenClass implements InterfaceNameForPenClass//суперкласс
  */
 interface InterfaceNameForPen
 {
-  public function getMaterial($material);
-  public function getInk($ink);
-  public function getColor($color);
+    public function getMaterial($material);
+    public function getInk($ink);
+    public function getColor($color);
 }
 
 final class Pen extends PenClass implements InterfaceNameForPen
@@ -221,10 +221,10 @@ class Bird implements InterfaceNameForBird//суперкласс
 /**
  * Дочерний класс
  */
- interface InterfaceNameForBirdDuck
- {
+interface InterfaceNameForBirdDuck
+{
      public function __construct ($age);
- }
+}
 
 final class Duck extends Bird implements InterfaceNameForBirdDuck
 {
@@ -256,8 +256,8 @@ echo "<pre>";
  */
 interface InterfaceNameForProductClass
 {
-  public function __construct ($name, $category, $material);
-  public function getDescribe();
+    public function __construct ($name, $category, $material);
+    public function getDescribe();
 }
 
 class ProductClass implements InterfaceNameForProductClass //суперкласс
@@ -268,48 +268,48 @@ class ProductClass implements InterfaceNameForProductClass //суперклас�
 
     public function __construct ($name, $category, $material)
     {
-      $this->name = $name;
-      $this->category = $category;
-      $this->material = $material;
+        $this->name = $name;
+        $this->category = $category;
+        $this->material = $material;
     }
 
     public function getDescribe()
     {
-      echo "Это {$this->name}, из категории - {$this->category}, сделана из материала {$this->material}. ";
+        echo "Это {$this->name}, из категории - {$this->category}, сделана из материала {$this->material}. ";
     }
 }
 /**
  * Дочерний класс
  */
- interface InterfaceNameForProductClassProduct
- {
-   public function setCopybook($pages);
-   public function setCup($volume);
-   public function getDescribe();
- }
+interface InterfaceNameForProductClassProduct
+{
+    public function setCopybook($pages);
+    public function setCup($volume);
+    public function getDescribe();
+}
+
 final class Product extends ProductClass implements InterfaceNameForProductClassProduct
 {
-  protected $pages;
-  protected $volume;
+    protected $pages;
+    protected $volume;
 
-  public function setCopybook($pages)
-  {
-      $this->pages = $pages;
-      return $this;
-  }
-  public function setCup($volume)
-  {
-      $this->volume = $volume;
-      return $this;
-  }
-
-  public function getDescribe()
-  {
-      parent::getDescribe();
-      if ($this->name == 'Тетрадь') {
-        echo "Коичество страниц - {$this->pages}\n";
-      } else {
-        echo "Объём - {$this->volume} мл\n";
+    public function setCopybook($pages)
+    {
+        $this->pages = $pages;
+        return $this;
+    }
+    public function setCup($volume)
+    {
+        $this->volume = $volume;
+        return $this;
+    }
+    public function getDescribe()
+    {
+        parent::getDescribe();
+        if ($this->name == 'Тетрадь') {
+            echo "Коичество страниц - {$this->pages}\n";
+        } else {
+            echo "Объём - {$this->volume} мл\n";
       }
   }
 }
